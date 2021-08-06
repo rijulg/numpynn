@@ -5,7 +5,7 @@ from ..src.Linear import Linear as NumpyLinear
 
 
 class Tester:
-    linear_torch = NumpyLinear()
+    linear_numpy = NumpyLinear()
 
     def y_torch(self, x, weight, bias):
         x = torch.tensor(x)
@@ -14,7 +14,7 @@ class Tester:
         return F.linear(x, weight, bias).numpy()
 
     def y_numpy(self, x, weight, bias):
-        return self.linear_torch(x, weight, bias)
+        return self.linear_numpy(x, weight, bias)
 
     def __call__(self):
         x = np.random.randn(32, 128)

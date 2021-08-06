@@ -5,13 +5,13 @@ from ..src.ReLU import ReLU as NumpyReLU
 
 class Tester:
 
-    relu_torch = NumpyReLU()
+    relu_numpy = NumpyReLU()
 
     def y_torch(self, x):
         return torch.relu(torch.tensor(x)).numpy()
 
     def y_numpy(self, x):
-        return self.relu_torch(x)
+        return self.relu_numpy(x)
 
     def __call__(self):
         x = np.random.randn(128)
