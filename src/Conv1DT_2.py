@@ -10,7 +10,6 @@ class Conv1DT:
         x = x.T # [inlen, inchan]
         w = weight.transpose(1, 0, 2) # [outchan, inchan, kernel]
         temp = np.dot(x, w) # [outchan, inlen, kernel]
-        print(temp.shape)
         y = np.zeros((outchan, outlen + 2*padding))
         for i in range(inlen):
             yi = stride*i
