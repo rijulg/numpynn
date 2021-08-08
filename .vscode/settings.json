@@ -1,0 +1,7 @@
+{
+  "python.pythonPath": "/opt/conda/bin/python",
+  "python.testing.pytestArgs": ["test"],
+  "python.testing.unittestEnabled": false,
+  "python.testing.nosetestsEnabled": false,
+  "python.testing.pytestEnabled": true
+}

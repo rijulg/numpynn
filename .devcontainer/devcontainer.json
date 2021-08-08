@@ -1,0 +1,7 @@
+{
+  "name": "numpy-nn",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "dev",
+  "workspaceFolder": "/home/workspace",
+  "extensions": ["ms-python.python", "esbenp.prettier-vscode"]
+}
