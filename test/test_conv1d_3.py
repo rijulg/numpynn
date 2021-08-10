@@ -23,7 +23,8 @@ class Tester:
         in_len = np.random.randint(3, 32)
         kernel_len = np.random.randint(1, in_len)
         padding = np.random.randint(0, 32)
-        dilation = 1
+        max_dilation = (in_len + 2*padding)//kernel_len
+        dilation = np.maximum(1, np.random.randint(0, max_dilation))
 
         x = np.random.randn(in_chan, in_len)
         W = np.random.randn(out_chan, in_chan, kernel_len)

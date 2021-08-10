@@ -13,6 +13,9 @@ class Conv1D:
 
         y += bias[:, None]
         for i in range(out_len):
-            y[:, i] += np.tensordot(x[i:i+kernel_len], weight)
+            y[:, i] += np.tensordot(
+                x[i:i+kernel_len*dilation:dilation],
+                weight
+            )
 
         return y
