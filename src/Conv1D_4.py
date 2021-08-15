@@ -13,8 +13,11 @@ class Conv1D:
         indices = np.tile(k_indices[None], (out_len, 1))
         indices += np.arange(out_len)[:, None] + (k_indices*(dilation-1))
 
+        # out_len, kernel_len, in_chan
         x = x[indices]
+        # kernel_len, in_chan, out_chan
         w = weight.transpose(2, 1, 0)
+        # out_len, out_chan
         y = np.tensordot(x, w, ((1, 2), (0, 1))) + bias[None]
 
         return y.T
