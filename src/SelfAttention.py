@@ -25,7 +25,7 @@ class SelfAttention:
         k = x[:, embed_dim*1:embed_dim*2]
         v = x[:, embed_dim*2:embed_dim*3]
 
-        attn = np.dot(q, k.T) / eps
+        attn = np.tensordot(q, k, (1, 1)) / eps
         attn = self.softmax(attn, 1)
         output = np.dot(attn, v)
 
@@ -45,8 +45,8 @@ class SelfAttention:
         v0 = x[:, head_dim*4:head_dim*5]
         v1 = x[:, head_dim*5:head_dim*6]
 
-        o0 = np.dot(self.softmax(np.dot(q0, k0.T) / eps, 1), v0)
-        o1 = np.dot(self.softmax(np.dot(q1, k1.T) / eps, 1), v1)
+        o0 = np.dot(self.softmax(np.tensordot(q0, k0, (1, 1)) / eps, 1), v0)
+        o1 = np.dot(self.softmax(np.tensordot(q1, k1, (1, 1)) / eps, 1), v1)
 
         output = np.concatenate((o0, o1), axis=1)
 
