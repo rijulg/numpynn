@@ -30,7 +30,7 @@ class Tester:
 def test():
     tester = Tester()
     for _ in range(32):
-        tester(2, 2, 4, 2, 1)
+        tester(3, 2, 4, 2, 1)
         tester(64, 32, 4, 2, 1)
         tester(128, 64, 4, 2, 1)
         tester(256, 128, 16, 8, 4)

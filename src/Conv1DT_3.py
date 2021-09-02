@@ -4,14 +4,16 @@ import numpy as np
 class Conv1DT:
 
     def __call__(self, x, weight, bias, stride, padding):
-        inchan, inlen = x.shape
-        inchan, outchan, kernel_len = weight.shape
-        outlen = int((inlen-1)*stride + kernel_len)
-        x = x.T  # [inlen, inchan]
-        w = weight.transpose(1, 0, 2)  # [outchan, inchan, kernel]
-        temp = np.dot(x, w).transpose(0, 2, 1)  # [inlen, kernel, outchan]
+        x = x.T
+        w = weight.transpose(2, 0, 1)
+        inlen, inchan = x.shape
+        kernel_len, inchan, outchan = w.shape
+
+        temp = np.dot(x, w)  # [inlen, kernel, outchan]
+
         temp = temp.reshape(inlen*kernel_len, outchan)
 
+        outlen = int((inlen-1)*stride + kernel_len)
         y = np.zeros((outlen, outchan)) + bias[None]
 
         out_idx = np.arange(0, outlen-2*padding)
