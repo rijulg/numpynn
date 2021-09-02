@@ -7,9 +7,9 @@ class Conv1DT:
         inchan, inlen = x.shape
         inchan, outchan, kernel_len = weight.shape
         outlen = int((inlen-1)*stride - 2*padding + kernel_len)
-        x = x.T # [inlen, inchan]
-        w = weight.transpose(1, 0, 2) # [outchan, inchan, kernel]
-        temp = np.dot(x, w) # [outchan, inlen, kernel]
+        x = x.T  # [inlen, inchan]
+        w = weight.transpose(1, 0, 2)  # [outchan, inchan, kernel]
+        temp = np.dot(x, w)  # [inlen, outchan, kernel]
         y = np.zeros((outchan, outlen + 2*padding))
         for i in range(inlen):
             yi = stride*i
