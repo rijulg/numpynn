@@ -17,8 +17,7 @@ class Tester:
         return self.conv1dt_numpy(x, weight, bias, stride, padding)
 
     def __call__(self, inchan, outchan, kernel_len, stride, padding):
-        # in_len = np.random.randint(7, 64)
-        in_len = 7
+        in_len = np.random.randint(7, 64)
         x = np.random.randn(inchan, in_len)
         W = np.random.randn(inchan, outchan, kernel_len)
         B = np.random.randn(outchan)
