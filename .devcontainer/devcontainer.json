@@ -3,5 +3,9 @@
   "dockerComposeFile": "docker-compose.yml",
   "service": "dev",
   "workspaceFolder": "/home/workspace",
-  "extensions": ["ms-python.python", "esbenp.prettier-vscode"]
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python", "esbenp.prettier-vscode"]
+    }
+  }
 }
