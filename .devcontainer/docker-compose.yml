@@ -6,7 +6,7 @@ services:
     container_name: numpynn
     volumes:
       # Mount SSH Keys as readonly
-      - ~/.ssh:/root/.ssh-localhost:ro
+      - ~/.ssh:/root/.ssh:ro
       # Mount gitconfig
       - ~/.gitconfig:/root/.gitconfig:ro
       # Mount working folder
