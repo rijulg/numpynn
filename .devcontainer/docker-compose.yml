@@ -15,7 +15,9 @@ services:
       resources:
         reservations:
           devices:
-            - capabilities: [gpu]
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
     # The following commands ensure that the container stays active
     entrypoint: bash
     stdin_open: true
